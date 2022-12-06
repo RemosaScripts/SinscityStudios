@@ -124,6 +124,42 @@ MySection:CreateButton({
     end
 })
 
+MySection:CreateButton({
+    Name = "Become Tribrid"; -- required: name of element
+    Callback = function() -- required: function to be called when button is pressed
+        print("Button pressed!")
+       
+        local Configs = game:GetService("Players").LocalPlayer.Character:FindFirstChild("Stats")
+            if Configs then
+                Configs.Species.Value = "Tribrid"
+        end
+    end
+})
+
+MySection:CreateButton({
+    Name = "Become God"; -- required: name of element
+    Callback = function() -- required: function to be called when button is pressed
+        print("Button pressed!")
+       
+        local Configs = game:GetService("Players").LocalPlayer.Character:FindFirstChild("Stats")
+            if Configs then
+                Configs.Species.Value = "God"
+        end
+    end
+})
+
+MySection:CreateButton({
+    Name = "Become Original"; -- required: name of element
+    Callback = function() -- required: function to be called when button is pressed
+        print("Button pressed!")
+       
+        local Configs = game:GetService("Players").LocalPlayer.Character:FindFirstChild("Stats")
+            if Configs then
+                Configs.Species.Value = "Original"
+        end
+    end
+})
+
 local MyPage = UI:CreatePage("Witch") 
 local MySection = MyPage:CreateSection("Witch")
 
@@ -199,17 +235,17 @@ game:GetService("ReplicatedStorage").Events.Action.SpellEvent:FireServer(unpack(
 
 
 MySection:CreateButton({
-    Name = "Self Healing"; -- required: name of element
+    Name = "Inf Energy"; -- required: name of element
     Callback = function() -- required: function to be called when button is pressed
         print("Button pressed!")
-    local args = {
-    [1] = game:GetService("Players").LocalPlayer.Character,
-    [2] = Enum.UserInputType.MouseButton1,
-    [3] = "Heal",
-    [4] = CFrame.new(Vector3.new(-44.837303161621094, 14.214372634887695, -223.32675170898438), Vector3.new(0.47864407300949097, -0.23378883302211761, -0.8463112711906433))
+    while true do wait(0,5)
+local args = {
+    [1] = -400,
+    [2] = false
 }
 
-game:GetService("ReplicatedStorage").Events.Action.VampireKeybind:FireServer(unpack(args))
+game:GetService("ReplicatedStorage").Events.Gameplay.Energy:FireServer(unpack(args))
+end
     
     end
 })
