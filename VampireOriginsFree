@@ -1,0 +1,338 @@
+local Atlas = loadstring(game:HttpGet("https://rd2glory.com/Atlas.lua"))()
+
+local UI = Atlas.new({
+    Name = "Sinscity Studios";
+    ConfigFolder = "MyScript";
+    Credit = "Made By sway#8437";
+    Color = Color3.fromRGB(0,255,0);
+    Bind = "LeftControl";
+    UseLoader = true;
+    FullName = "Sinscity Studios";
+    CheckKey = function(inputtedKey)
+        return inputtedKey == "sinscitystudios"
+    end;
+    Discord = "https://discord.gg/27WvKsTxah";
+})
+
+UI:Notify({
+  Title = "TVO Script Loaded, Enjoy!";
+  Content = "Vampire Origins | Sinscity Studios";
+})
+
+local MyPage = UI:CreatePage("Main")
+local MySection = MyPage:CreateSection("Main")
+
+MySection:CreateButton({
+    Name = "God Blood"; -- required: name of element
+    Callback = function() -- required: function to be called when button is pressed
+        print("Button pressed!")
+        
+        local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character,
+    [2] = Enum.UserInputType.MouseButton1,
+    [3] = "Blood",
+    [4] = CFrame.new(Vector3.new(-23.258277893066406, 14.093950271606445, -257.9762878417969), Vector3.new(-0.2177114635705948, -0.6563482880592346, -0.7223632335662842))
+}
+
+game:GetService("ReplicatedStorage").Events.Action.WitchKeybind:FireServer(unpack(args))
+    end
+})
+
+MySection:CreateButton({
+    Name = "Become Vampire/Heretic"; -- required: name of element
+    Callback = function() -- required: function to be called when button is pressed
+        print("Button pressed!")
+        
+        local args = {
+    [1] = "TurnVampire",
+    [2] = workspace.Map.Interactables:FindFirstChild(" ")
+}
+
+game:GetService("ReplicatedStorage").Events.System.Dialog:FireServer(unpack(args))
+    end
+})
+
+
+MySection:CreateButton({
+    Name = "Give Yourself Ring"; -- required: name of element
+    Callback = function() -- required: function to be called when button is pressed
+        print("Button pressed!")
+         local Char = game.Players.LocalPlayer.Character
+        local Specie = Char.Stats.Species.Value
+        local Ring = Instance.new("Model",Char)
+        Ring.Name = "DaylightRing"
+        
+    end
+})
+
+MySection:CreateButton({
+    Name = "Anti Eagdoll"; -- required: name of element
+    Callback = function() -- required: function to be called when button is pressed
+        print("Button pressed!")
+        
+            game.Players.LocalPlayer.Character.Ragdoll:destroy()
+
+    end
+})
+
+MySection:CreateButton({
+    Name = "Admin Commands"; -- required: name of element
+    Callback = function() -- required: function to be called when button is pressed
+        print("Button pressed!")
+        
+                loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+
+    end
+})
+
+local MyPage = UI:CreatePage("Player") 
+local MySection = MyPage:CreateSection("Player MOD")
+
+MySection:CreateButton({
+    Name = "Become Witch"; -- required: name of element
+    Callback = function() -- required: function to be called when button is pressed
+        print("Button pressed!")
+       
+        local Configs = game:GetService("Players").LocalPlayer.Character:FindFirstChild("Stats")
+            if Configs then
+                Configs.Species.Value = "Witch"
+        end
+    end
+})
+
+MySection:CreateButton({
+    Name = "Become Vampire"; -- required: name of element
+    Callback = function() -- required: function to be called when button is pressed
+        print("Button pressed!")
+       
+        local Configs = game:GetService("Players").LocalPlayer.Character:FindFirstChild("Stats")
+            if Configs then
+                Configs.Species.Value = "Vampire"
+        end
+    end
+})
+
+MySection:CreateButton({
+    Name = "Become Heretic"; -- required: name of element
+    Callback = function() -- required: function to be called when button is pressed
+        print("Button pressed!")
+       
+        local Configs = game:GetService("Players").LocalPlayer.Character:FindFirstChild("Stats")
+            if Configs then
+                Configs.Species.Value = "Heretic"
+        end
+    end
+})
+
+local MyPage = UI:CreatePage("Witch") 
+local MySection = MyPage:CreateSection("Witch")
+
+MySection:CreateButton({
+    Name = "Dark Josie Levitation"; -- required: name of element
+    Callback = function() -- required: function to be called when button is pressed
+        print("Button pressed!")
+        
+         AnimationId = "9118954207"
+        local Anim = Instance.new("Animation")
+        Anim.AnimationId = "rbxassetid://"..AnimationId
+        local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+        k:Play()
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 45
+        wait(50)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+        local Humanoid = game.Players.LocalPlayer.Character.Humanoid
+        local ActiveTracks = Humanoid:GetPlayingAnimationTracks()
+        for _,v in pairs(ActiveTracks)
+            do v:Stop()
+        end
+    end
+})
+
+MySection:CreateButton({
+    Name = "Self Resurrection"; -- required: name of element
+    Callback = function() -- required: function to be called when button is pressed
+        print("Button pressed!")
+        
+        local ColorCorrection = game:GetService("Lighting"):FindFirstChild("ColorCorrection")
+        local Atmosphere = game:GetService("Lighting"):FindFirstChild("Atmosphere")
+        local Storm = game:GetService("Lighting"):FindFirstChild("Storm")
+        local Player = game:GetService("Players").LocalPlayer
+        local Character = Player.Character
+        if Atmosphere then
+            Atmosphere:Destroy()
+        end
+        if Storm then
+            Storm:Destroy()
+        end
+        if ColorCorrection then
+            ColorCorrection:Destroy()
+        end
+        local Ghost = Character:FindFirstChild("Ghost")
+        if Ghost then
+            Ghost:Destroy()
+        end
+        Player.PlayerGui["Ability Gui"].Enabled = true
+        Player.PlayerGui["Stats"].Enabled = true
+        Character.Parent = game:GetService("Workspace").Players
+        game:GetService("Workspace").Camera.CameraSubject = Character.Humanoid
+    end
+})
+
+local MyPage = UI:CreatePage("Vampire") 
+local MySection = MyPage:CreateSection("Vampire")
+
+MySection:CreateButton({
+    Name = "Become OG (Esther Only)"; -- required: name of element
+    Callback = function() -- required: function to be called when button is pressed
+        print("Button pressed!")
+        local args = {
+    [1] = "fortis lamia",
+    [2] = game:GetService("Players").LocalPlayer.Character,
+    [3] = CFrame.new(Vector3.new(269.0731506347656, 14.140454292297363, -291.0645446777344), Vector3.new(-0.6483819484710693, -0.4274652302265167, -0.62997967004776)),
+    [4] = game:GetService("Players").LocalPlayer.Character.Head
+}
+
+game:GetService("ReplicatedStorage").Events.Action.SpellEvent:FireServer(unpack(args))
+        
+    end
+})
+
+
+MySection:CreateButton({
+    Name = "Self Healing"; -- required: name of element
+    Callback = function() -- required: function to be called when button is pressed
+        print("Button pressed!")
+    local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character,
+    [2] = Enum.UserInputType.MouseButton1,
+    [3] = "Heal",
+    [4] = CFrame.new(Vector3.new(-44.837303161621094, 14.214372634887695, -223.32675170898438), Vector3.new(0.47864407300949097, -0.23378883302211761, -0.8463112711906433))
+}
+
+game:GetService("ReplicatedStorage").Events.Action.VampireKeybind:FireServer(unpack(args))
+    
+    end
+})
+
+local MyPage = UI:CreatePage("Channeling") 
+local MySection = MyPage:CreateSection("Options")
+
+MySection:CreateButton({
+    Name = "Self Channeling"; -- required: name of element
+    Callback = function() -- required: function to be called when button is pressed
+        print("Button pressed!")
+        
+        local args = {
+    [1] = "phasmatos magicae",
+    [2] = game:GetService("Players").LocalPlayer.Character,
+    [3] = CFrame.new(Vector3.new(-149.24205017089844, 14.159297943115234, -154.07615661621094), Vector3.new(-0.7724448442459106, -0.4179568588733673, -0.4781641662120819)),
+    [4] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+}
+
+game:GetService("ReplicatedStorage").Events.Action.SpellEvent:FireServer(unpack(args))
+    end
+    
+})
+
+MySection:CreateButton({
+    Name = "Delete Channel"; -- required: name of element
+    Callback = function() -- required: function to be called when button is pressed
+        print("Button pressed!")
+         game.Players.LocalPlayer.Character.Channeled:destroy()
+    game.Players.LocalPlayer.Character.Channeled:destroy()
+        
+    end
+})
+
+
+MySection:CreateButton({
+    Name = "Inspire Yourself (Cleo)"; -- required: name of element
+    Callback = function() -- required: function to be called when button is pressed
+        print("Button pressed!")
+        
+        local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character,
+    [2] = Enum.UserInputType.MouseButton1,
+    [3] = "Inspire",
+    [4] = CFrame.new(Vector3.new(72.34286499023438, 13.75339126586914, -135.1629638671875), Vector3.new(0.29185542464256287, -0.2388596385717392, -0.9261568784713745))
+}
+
+game:GetService("ReplicatedStorage").Events.Action.WitchKeybind:FireServer(unpack(args))
+    end
+})
+
+local MyPage = UI:CreatePage("Items")
+local MySection = MyPage:CreateSection("Weapon Shop")
+
+MySection:CreateButton({
+    Name = "Wooden Stake"; -- required: name of element
+    Callback = function() -- required: function to be called when button is pressed
+        print("Button pressed!")
+        local args = {
+    [1] = "Stake"
+}
+
+game:GetService("ReplicatedStorage").Events.System.Dialog:FireServer(unpack(args))
+    end
+})
+
+MySection:CreateButton({
+    Name = "Hope Blood"; -- required: name of element
+    Callback = function() -- required: function to be called when button is pressed
+        print("Button pressed!")
+        
+         local args = {
+    [1] = "HopeBlood"
+}
+
+game:GetService("ReplicatedStorage").Events.System.Dialog:FireServer(unpack(args))
+    end
+})
+
+local MyPage = UI:CreatePage("Unlocker")
+local MySection = MyPage:CreateSection("Coins Unlocker")
+
+MySection:CreateButton({
+    Name = "Unlock Cleo"; -- required: name of element
+    Callback = function() -- required: function to be called when button is pressed
+        print("Button pressed!")
+        
+        -- This script was generated by Hydroxide's RemoteSpy: https://github.com/Upbolt/Hydroxide
+
+local ohString1 = "BuyChar"
+local ohString2 = "Cleo"
+local ohNumber3 = 0
+
+game:GetService("ReplicatedStorage").Events.System.MenuMisc:FireServer(ohString1, ohString2, ohNumber3)
+    end
+})
+
+MySection:CreateButton({
+    Name = "Unlock Davina"; -- required: name of element
+    Callback = function() -- required: function to be called when button is pressed
+        print("Button pressed!")
+        
+        -- This script was generated by Hydroxide's RemoteSpy: https://github.com/Upbolt/Hydroxide
+
+local ohString1 = "BuyChar"
+local ohString2 = "Davina"
+local ohNumber3 = 0
+
+game:GetService("ReplicatedStorage").Events.System.MenuMisc:FireServer(ohString1, ohString2, ohNumber3)
+    end
+})
+
+MySection:CreateButton({
+    Name = "Unlock Esther"; -- required: name of element
+    Callback = function() -- required: function to be called when button is pressed
+        print("Button pressed!")
+        
+        -- This script was generated by Hydroxide's RemoteSpy: https://github.com/Upbolt/Hydroxide
+
+local ohString1 = "BuyChar"
+local ohString2 = "Esther"
+local ohNumber3 = 0
+
+game:GetService("ReplicatedStorage").Events.System.MenuMisc:FireServer(ohString1, ohString2, ohNumber3)
+    end
+})
